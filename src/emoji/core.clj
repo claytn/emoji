@@ -43,7 +43,7 @@
                   #"(:)([-+\w]+)(:)"
                   (fn [[original _delimeter_1 alias _delimeter_2]]
                     (let [emoji (-> alias ->emoji)]
-                      (if (nil? emoji) original emoji)))))
+                      (or emoji original)))))
 
 (defn emojify-all
   "Replace every word in a sentence to emoji if it is an alias.
